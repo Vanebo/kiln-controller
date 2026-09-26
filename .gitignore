@@ -1,0 +1,33 @@
+# PlatformIO and generated firmware
+.pio/
+.pioenvs/
+.piolibdeps/
+build/
+dist/
+*.bin
+*.elf
+*.map
+
+# Local editor and OS state
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# Local credentials and private configuration
+.env
+.env.*
+!.env.example
+secrets.h
+secrets.local.*
+*.pem
+*.key
+
+# Development caches
+__pycache__/
+node_modules/
+
+# Keep source assets and dependency manifests tracked.
+# Ignoring a file does not remove it from existing Git history.
