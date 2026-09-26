@@ -1,16 +1,17 @@
 # Bill of materials
 
-Add one row per controller, display, sensor, connector, power-supply and output-interface part. Use stable manufacturer or distributor links where possible.
+These are the parts used for the current 0–10 V build. Some purchase links below are affiliate links. The project author may receive a commission if you buy through them, at no additional cost to you.
+
+AliExpress listings and option names can change. Check the voltage, interface, board shape and selected variant before ordering. Equivalent parts can be used when their electrical specifications and pinout match the firmware and schematic.
 
 | Qty | Part | Manufacturer / model / value | Purchase link | Notes |
 | ---: | --- | --- | --- | --- |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
+| 1 | Microcontroller board | ESP32-S3 development board, N16R8, USB-C, external 2.4 GHz antenna connection | [AliExpress](https://s.click.aliexpress.com/e/_c4V1haxx) | Choose the ESP32-S3 N16R8 version used by this firmware and confirm its pinout matches the wiring diagram. |
+| 1 | Rotary encoder module | EC11 rotary encoder breakout with push switch and knob cap | [AliExpress](https://s.click.aliexpress.com/e/_c38xIEVJ) | The listing title advertises a two-piece pack; only one encoder module is required for the controller. |
+| 1 | TFT display | 3.5-inch 480×320 TFT LCD; select the **without touch** option | [AliExpress](https://s.click.aliexpress.com/e/_c3VFtWav) | Confirm an ILI9486-compatible controller and 8-bit parallel interface before ordering. |
+| 1 | Thermocouple interface | **Square** MAX31855 module for a K-type thermocouple | [AliExpress](https://s.click.aliexpress.com/e/_c32PNhKz) | Select the square-board version. The listing advertises measurement to 800 °C; use a thermocouple and interface rated for the highest intended kiln temperature. |
+| 1 | Analog output converter | PWM-to-voltage converter with 0–10 V output | [AliExpress](https://s.click.aliexpress.com/e/_c3F7v1zb) | Confirm the selected board converts PWM **to** 0–10 V; the listing title is ambiguous about signal direction. Calibrate the output before connecting it to the kiln. |
+| 1 | Low-voltage power supply | AC-to-DC switching supply module, **12 V 2 A, 24 W** option | [AliExpress](https://s.click.aliexpress.com/e/_c3tpCyiv) | This is a bare mains-voltage module. Install it in a suitable enclosed, insulated assembly with appropriate input protection and strain relief; have mains wiring completed and checked by a qualified person. |
+| 1 | DC step-down converter | MP1584EN adjustable buck-converter module, rated up to 3 A | [AliExpress](https://s.click.aliexpress.com/e/_c3l9w9nR) | The listing advertises a five-piece pack; only one module is required. Adjust and measure its output voltage before connecting the controller electronics. |
+
+The controller firmware outputs a 2 kHz, 12-bit PWM signal on GPIO39. The present hardware converts this to 0–10 V. To use another electric kiln, replace or adapt the output interface for the kiln's required control signal and update the firmware configuration as needed. Do not connect an ESP32 pin directly to a kiln control or mains circuit.
