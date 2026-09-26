@@ -8,7 +8,8 @@
 - The accessible conversation and project documentation provide only partial v0.1–v0.3 history.
 - A clean PlatformIO release build completed successfully on 2026-09-26. Hardware and OTA behavior were not retested during publication preparation.
 - MIT licensing was selected for the original project source and documentation. The Inter-based embedded font attribution is recorded separately.
-- GitHub publication and release creation remain pending.
+- The public `Vanebo/kiln-controller` repository was created and the reviewed source was published to `main` on 2026-09-26.
+- The v0.4.1 release is prepared; its firmware asset and final release publication remain pending.
 
 ## Imported working version
 
@@ -31,3 +32,4 @@ The `esp32-s3` environment builds successfully with Espressif32 platform 7.1.3, 
 Create tag `v0.4.1` only at the commit containing this imported working firmware. Use `docs/releases/v0.4.1.md` as the release body after updating its verification status. Attach a verified application image only if built from that tagged commit; include its checksum and board/build configuration. GitHub's source archive is not a precompiled firmware image.
 
 Do not publish the placeholder historical notes as actual releases until their corresponding source and history are recovered.
+
