@@ -2,6 +2,8 @@
 
 Open-source ESP32-S3 kiln controller with local controls, a 480 × 320 display, program ramp/hold control, PID regulation, a web interface and browser-based firmware updates.
 
+![Finished kiln controller](hardware/photos/finished-controller-front.jpg)
+
 The controller output can be adapted to suit electric kilns with different power-control interfaces. The hardware built for this v0.4-series project uses a PWM-to-0–10 V converter: the ESP32 produces a 2 kHz, 12-bit PWM signal on GPIO39, and the external circuit converts it to the 0–10 V command expected by the kiln power regulator. To use another interface—such as a suitably isolated SSR or a different analog standard—replace or adapt the external output stage and update the small hardware-output layer in `src/control.cpp` as required.
 
 > This repository contains controller firmware, not a universal mains-power circuit. Each kiln still needs a correctly rated and suitably isolated power stage, independent over-temperature protection, appropriate fusing and installation by someone qualified for the voltages involved.
@@ -17,9 +19,10 @@ The imported working project reports firmware **0.4.1** and is the current versi
 - MAX31855 interface and K-type thermocouple
 - Rotary encoder with push button
 - Physical STOP/Home button
-- External PWM-to-0–10 V output circuit
+- External PWM-to-0–10 V output circuit, using either a purchased module or the documented LM358 circuit
+- 3D-printed controller housing
 
-The circuit schematic will be added under [`hardware/`](hardware/README.md). The empty [`hardware/BOM.md`](hardware/BOM.md) is ready for part names, quantities and purchase links.
+The [`hardware documentation`](hardware/README.md) includes the controller connection overview, LM358 PWM-to-0–10 V circuit, finished-product photos and downloadable enclosure models. The completed [`hardware/BOM.md`](hardware/BOM.md) lists the parts, variants and purchase links.
 
 ## Pin map
 
@@ -124,12 +127,13 @@ Normal application OTA replaces the inactive application partition and is intend
 ## Documentation
 
 - [`CHANGELOG.md`](CHANGELOG.md) — reconstructed version history
-- [`hardware/BOM.md`](hardware/BOM.md) — empty bill-of-materials template
-- [`hardware/README.md`](hardware/README.md) — schematic and output-interface location
+- [`hardware/BOM.md`](hardware/BOM.md) — parts, variants and purchase links
+- [`hardware/README.md`](hardware/README.md) — connection overview, LM358 circuit, photos and enclosure files
+- [`hardware/photos/README.md`](hardware/photos/README.md) — finished controller and build gallery
+- [`hardware/case/README.md`](hardware/case/README.md) — STL, 3MF and STEP enclosure downloads
 - [`docs/LICENSING.md`](docs/LICENSING.md) — license choice and third-party checks
 - [`docs/releases/v0.4.1.md`](docs/releases/v0.4.1.md) — current release-note draft
 
 ## License
 
 The original project source and documentation are released under the [MIT License](LICENSE), copyright © 2026 Brage (Vanebo). Embedded font data and downloaded build dependencies retain their respective upstream licenses; see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
-

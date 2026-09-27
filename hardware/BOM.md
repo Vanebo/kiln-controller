@@ -16,4 +16,18 @@ AliExpress listings and option names can change. Check the voltage, interface, b
 | 1 | DC step-down converter | MP1584EN adjustable buck-converter module, rated up to 3 A | [AliExpress](https://s.click.aliexpress.com/e/_c3l9w9nR) | The listing advertises a five-piece pack; only one module is required. Adjust and measure its output voltage before connecting the controller electronics. |
 | 1 | Kiln thermocouple | K-type high-temperature probe rated to 1300 °C; 150, 200 and 250 mm options | [AliExpress](https://s.click.aliexpress.com/e/_c4rd7vdF) | Select the probe length to suit the kiln and installation setup. Confirm the probe diameter, connector and lead arrangement before ordering. |
 
+## Optional LM358 PWM-to-0–10 V circuit
+
+Use these parts in place of the purchased analog output converter. See the [circuit and calibration instructions](README.md#pwm-to-010-v-output).
+
+| Qty | Part | Value | Notes |
+| ---: | --- | --- | --- |
+| 1 | Dual operational amplifier | LM358 | One amplifier channel is used; powered from 12 V. |
+| 1 | Input resistor | 4.7 kΩ | Forms the PWM low-pass filter. |
+| 1 | Filter capacitor | 10 µF | Observe electrolytic polarity as shown in the circuit. |
+| 1 | Supply bypass capacitor | 100 nF ceramic | Fit close to LM358 pins 8 and 4. |
+| 1 | Gain resistor | 10 kΩ | From the inverting input to ground. |
+| 1 | Adjustable feedback resistor | 25 kΩ or 50 kΩ trimmer | Adjust for 10.00 V at a 100% PWM command. |
+| 1 | Prototype board or PCB | As required | Keep low-voltage signal wiring separate from mains wiring. |
+
 The controller firmware outputs a 2 kHz, 12-bit PWM signal on GPIO39. The present hardware converts this to 0–10 V. To use another electric kiln, replace or adapt the output interface for the kiln's required control signal and update the firmware configuration as needed. Do not connect an ESP32 pin directly to a kiln control or mains circuit.
